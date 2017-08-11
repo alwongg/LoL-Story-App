@@ -19,7 +19,8 @@ class ChampionsViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+   
     
     // MARK: - View Lifecycle
     
@@ -38,7 +39,7 @@ class ChampionsViewController: UIViewController {
                 print("Error fetching champions: \(error)")
                 self.champions.removeAll()
             }
-            self.collectionView.reloadSections(IndexSet(integer: 0))
+            self.tableView.reloadSections(IndexSet(integer: 0)
         }
     }
     
@@ -47,7 +48,7 @@ class ChampionsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showPhoto"?:
-            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+            if let selectedIndexPath = tableView.indexPathsForSelectedItems?.first {
                 
                 let champion = self.champions[selectedIndexPath.row]
                 
@@ -63,20 +64,22 @@ class ChampionsViewController: UIViewController {
 
 // MARK: - UICollectionView
 
-extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ChampionsViewController: UITableViewDelegate, UITableViewDataSource{
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return champions.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = "ChampionCollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ChampionCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withReuseIdentifier: "TableViewCell", for: indexPath) as! ChampionTableViewCell
         
         return cell
+
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let champion = self.champions[indexPath.row]
         
         // Download the image data
@@ -88,11 +91,15 @@ extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             let championIndexPath = IndexPath(item: championIndex, section: 0)
             
-            if let cell = self.collectionView.cellForItem(at: championIndexPath) as? ChampionCollectionViewCell {
+            if let cell = self.tableView.cellForRow(at: championIndexPath) as?ChampionTableViewCell {
                 cell.update(with: image)
             }
+            
+    
         }
+
     }
+    
 
     
 }

@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ChampionCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var imageView: UIImageView!
+class ChampionTableViewCell: UITableViewCell {
+    
     @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
