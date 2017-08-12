@@ -21,7 +21,7 @@ class ChampionDetailViewController: UIViewController {
     
     var champion: ChampionDetails! {
         didSet {
-            navigationItem.title = champion.name
+            navigationItem.title = ""
         }
     }
     var storage: ChampionStorage!
