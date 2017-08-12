@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ChampionTableViewCell: UITableViewCell {
+// MARK: - ChampionCollectionViewCell
+
+class ChampionCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var spinner: UIActivityIndicatorView!
+    // MARK: - IBOutlets
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     
+    // MARK: - View Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +33,10 @@ class ChampionTableViewCell: UITableViewCell {
     
     func update(with image: UIImage?) {
         if let imageToDisplay = image {
-            spinner.stopAnimating()
+            activityLoader.stopAnimating()
             imageView.image = imageToDisplay
         } else {
-            spinner.startAnimating()
+            activityLoader.startAnimating()
             imageView.image = nil
         }
     }

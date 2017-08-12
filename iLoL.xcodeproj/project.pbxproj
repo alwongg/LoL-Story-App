@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5F6D2A1F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F6D291F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift */; };
+		FA5F6D361F3EB04C00DF71FF /* RiotError&Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F6D351F3EB04C00DF71FF /* RiotError&Result.swift */; };
+		FA5F6D3A1F3EB96A00DF71FF /* poro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5F6D391F3EB96A00DF71FF /* poro.jpg */; };
 		FA8EB3DE1F3D7052003FEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3DD1F3D7052003FEE0D /* AppDelegate.swift */; };
 		FA8EB3E01F3D7052003FEE0D /* ChampionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3DF1F3D7052003FEE0D /* ChampionDetailViewController.swift */; };
 		FA8EB3E31F3D7052003FEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8EB3E11F3D7052003FEE0D /* Main.storyboard */; };
-		FA8EB3E61F3D7052003FEE0D /* iLoL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3E41F3D7052003FEE0D /* iLoL.xcdatamodeld */; };
 		FA8EB3E81F3D7052003FEE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8EB3E71F3D7052003FEE0D /* Assets.xcassets */; };
 		FA8EB3EB1F3D7052003FEE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8EB3E91F3D7052003FEE0D /* LaunchScreen.storyboard */; };
-		FA8EB3F71F3D7143003FEE0D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3F61F3D7143003FEE0D /* ImageStore.swift */; };
-		FA8EB3F91F3D714A003FEE0D /* ChampionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3F81F3D714A003FEE0D /* ChampionStore.swift */; };
+		FA8EB3F71F3D7143003FEE0D /* ImageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3F61F3D7143003FEE0D /* ImageCoreData.swift */; };
+		FA8EB3F91F3D714A003FEE0D /* ChampionCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3F81F3D714A003FEE0D /* ChampionCoreData.swift */; };
 		FA8EB3FD1F3D7183003FEE0D /* ChampionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3FC1F3D7183003FEE0D /* ChampionDetails.swift */; };
 		FA8EB3FF1F3D7198003FEE0D /* RiotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3FE1F3D7198003FEE0D /* RiotClient.swift */; };
 		FA8EB4011F3D7217003FEE0D /* ChampionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB4001F3D7217003FEE0D /* ChampionsViewController.swift */; };
@@ -23,16 +25,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA5F6D291F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetailsEquatable.swift; sourceTree = "<group>"; };
+		FA5F6D351F3EB04C00DF71FF /* RiotError&Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RiotError&Result.swift"; sourceTree = "<group>"; };
+		FA5F6D391F3EB96A00DF71FF /* poro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = poro.jpg; sourceTree = "<group>"; };
 		FA8EB3DA1F3D7052003FEE0D /* iLoL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLoL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8EB3DD1F3D7052003FEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA8EB3DF1F3D7052003FEE0D /* ChampionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailViewController.swift; sourceTree = "<group>"; };
 		FA8EB3E21F3D7052003FEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FA8EB3E51F3D7052003FEE0D /* iLoL.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iLoL.xcdatamodel; sourceTree = "<group>"; };
 		FA8EB3E71F3D7052003FEE0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8EB3EA1F3D7052003FEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8EB3EC1F3D7052003FEE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA8EB3F61F3D7143003FEE0D /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
-		FA8EB3F81F3D714A003FEE0D /* ChampionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionStore.swift; sourceTree = "<group>"; };
+		FA8EB3F61F3D7143003FEE0D /* ImageCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCoreData.swift; sourceTree = "<group>"; };
+		FA8EB3F81F3D714A003FEE0D /* ChampionCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionCoreData.swift; sourceTree = "<group>"; };
 		FA8EB3FC1F3D7183003FEE0D /* ChampionDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetails.swift; sourceTree = "<group>"; };
 		FA8EB3FE1F3D7198003FEE0D /* RiotClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiotClient.swift; sourceTree = "<group>"; };
 		FA8EB4001F3D7217003FEE0D /* ChampionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionsViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA5F6D2E1F3E9B1200DF71FF /* RiotStore */ = {
+			isa = PBXGroup;
+			children = (
+				FA8EB3F81F3D714A003FEE0D /* ChampionCoreData.swift */,
+				FA8EB3F61F3D7143003FEE0D /* ImageCoreData.swift */,
+			);
+			name = RiotStore;
+			sourceTree = "<group>";
+		};
 		FA8EB3D11F3D7052003FEE0D = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 				FA8EB3E71F3D7052003FEE0D /* Assets.xcassets */,
 				FA8EB3E91F3D7052003FEE0D /* LaunchScreen.storyboard */,
 				FA8EB3EC1F3D7052003FEE0D /* Info.plist */,
+				FA5F6D391F3EB96A00DF71FF /* poro.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,9 +133,7 @@
 		FA8EB3FA1F3D7158003FEE0D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FA8EB3E41F3D7052003FEE0D /* iLoL.xcdatamodeld */,
-				FA8EB3F81F3D714A003FEE0D /* ChampionStore.swift */,
-				FA8EB3F61F3D7143003FEE0D /* ImageStore.swift */,
+				FA5F6D2E1F3E9B1200DF71FF /* RiotStore */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -132,6 +144,8 @@
 				FA8EB3FE1F3D7198003FEE0D /* RiotClient.swift */,
 				FA8EB4071F3D7DAA003FEE0D /* RiotConstants.swift */,
 				FA8EB3FC1F3D7183003FEE0D /* ChampionDetails.swift */,
+				FA5F6D291F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift */,
+				FA5F6D351F3EB04C00DF71FF /* RiotError&Result.swift */,
 			);
 			name = RiotAPI;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 			files = (
 				FA8EB3EB1F3D7052003FEE0D /* LaunchScreen.storyboard in Resources */,
 				FA8EB3E81F3D7052003FEE0D /* Assets.xcassets in Resources */,
+				FA5F6D3A1F3EB96A00DF71FF /* poro.jpg in Resources */,
 				FA8EB3E31F3D7052003FEE0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5F6D2A1F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift in Sources */,
 				FA8EB4061F3D72B7003FEE0D /* ChampionCollectionViewCell.swift in Sources */,
 				FA8EB3E01F3D7052003FEE0D /* ChampionDetailViewController.swift in Sources */,
 				FA8EB4011F3D7217003FEE0D /* ChampionsViewController.swift in Sources */,
@@ -215,9 +231,9 @@
 				FA8EB3FF1F3D7198003FEE0D /* RiotClient.swift in Sources */,
 				FA8EB4081F3D7DAA003FEE0D /* RiotConstants.swift in Sources */,
 				FA8EB3FD1F3D7183003FEE0D /* ChampionDetails.swift in Sources */,
-				FA8EB3E61F3D7052003FEE0D /* iLoL.xcdatamodeld in Sources */,
-				FA8EB3F91F3D714A003FEE0D /* ChampionStore.swift in Sources */,
-				FA8EB3F71F3D7143003FEE0D /* ImageStore.swift in Sources */,
+				FA8EB3F91F3D714A003FEE0D /* ChampionCoreData.swift in Sources */,
+				FA8EB3F71F3D7143003FEE0D /* ImageCoreData.swift in Sources */,
+				FA5F6D361F3EB04C00DF71FF /* RiotError&Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,21 +397,9 @@
 				FA8EB3F11F3D7052003FEE0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FA8EB3E41F3D7052003FEE0D /* iLoL.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FA8EB3E51F3D7052003FEE0D /* iLoL.xcdatamodel */,
-			);
-			currentVersion = FA8EB3E51F3D7052003FEE0D /* iLoL.xcdatamodel */;
-			path = iLoL.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FA8EB3D21F3D7052003FEE0D /* Project object */;
 }

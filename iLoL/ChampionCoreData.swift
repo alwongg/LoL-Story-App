@@ -1,5 +1,5 @@
 //
-//  ChampionStore.swift
+//  ChampionCoreData.swift
 //  iLoL
 //
 //  Created by Alex Wong on 8/10/17.
@@ -9,28 +9,23 @@
 import Foundation
 import UIKit
 
-enum ChampionImageResult {
-    case success(UIImage)
-    case failure(Error)
-}
+// MARK: - ChampionStorage
 
-enum ChampionError: Error {
-    case championImageCreationError
-}
-
-enum ChampionsResult {
-    case success([ChampionDetails])
-    case failure(Error)
-}
-
-class ChampionStore {
+class ChampionStorage {
     
-    let imageStore = ImageStore()
+    // MARK: - Properties
+    
+    let imageStore = ImageStorage()
     
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
+    
+    enum ChampionImageResult {
+        case success(UIImage)
+        case fail(Error)
+    }
     
     private func processChampionImageRequest(data: Data?, error: Error?) -> ChampionImageResult {
         guard
@@ -39,9 +34,9 @@ class ChampionStore {
                 
                 // Couldn't create an image
                 if data == nil {
-                    return .failure(error!)
+                    return .fail(error!)
                 } else {
-                    return .failure(ChampionError.championImageCreationError)
+                    return .fail(ChampionError.championImageCreationError)
                 }
         }
         
@@ -98,4 +93,6 @@ class ChampionStore {
         }
         task.resume()
     }
+    
+    
 }

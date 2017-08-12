@@ -15,18 +15,17 @@ class ChampionsViewController: UIViewController {
     // MARK: - Properties
     
     var champions = [ChampionDetails]()
-    var store: ChampionStore!
+    var store: ChampionStorage!
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var tableView: UITableView!
-   
+    @IBOutlet var collectionView: UICollectionView!
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont(name: "BradleyHandITCTT-Bold", size: 30)!]
 
         store.fetchChampions {
             (championsResult) -> Void in
@@ -39,8 +38,9 @@ class ChampionsViewController: UIViewController {
                 print("Error fetching champions: \(error)")
                 self.champions.removeAll()
             }
-            self.tableView.reloadSections(IndexSet(integer: 0)
+            self.collectionView.reloadSections(IndexSet(integer: 0))
         }
+        
     }
     
     // MARK: - Navigation
@@ -48,13 +48,13 @@ class ChampionsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showPhoto"?:
-            if let selectedIndexPath = tableView.indexPathsForSelectedItems?.first {
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 
                 let champion = self.champions[selectedIndexPath.row]
                 
                 let destinationVC = segue.destination as! ChampionDetailViewController
                 destinationVC.champion = champion
-                destinationVC.store = store
+                destinationVC.storage = store
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
@@ -64,22 +64,20 @@ class ChampionsViewController: UIViewController {
 
 // MARK: - UICollectionView
 
-extension ChampionsViewController: UITableViewDelegate, UITableViewDataSource{
+extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return champions.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withReuseIdentifier: "TableViewCell", for: indexPath) as! ChampionTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = "ChampionCollectionViewCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ChampionCollectionViewCell
         
         return cell
-
     }
     
-    
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let champion = self.champions[indexPath.row]
         
         // Download the image data
@@ -91,15 +89,11 @@ extension ChampionsViewController: UITableViewDelegate, UITableViewDataSource{
             }
             let championIndexPath = IndexPath(item: championIndex, section: 0)
             
-            if let cell = self.tableView.cellForRow(at: championIndexPath) as?ChampionTableViewCell {
+            if let cell = self.collectionView.cellForItem(at: championIndexPath) as? ChampionCollectionViewCell {
                 cell.update(with: image)
             }
-            
-    
         }
-
     }
-    
 
     
 }

@@ -17,30 +17,31 @@ class ChampionDetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet weak var storyLabel: UILabel!
     
     var champion: ChampionDetails! {
         didSet {
             navigationItem.title = champion.name
         }
     }
-    var store: ChampionStore!
+    var storage: ChampionStorage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        store.fetchChampionImage(for: champion) { (result) -> Void in
+        storage.fetchChampionImage(for: champion) { (result) -> Void in
             switch result {
             case let .success(image):
                 self.imageView.image = image
-            case let .failure(error):
+            case let .fail(error):
                 print("Error fetching image for photo: \(error)")
             }
         }
 
         nameLabel.text = champion.name
-        nameLabel.sizeToFit()
         titleLabel.text = champion.title
-        titleLabel.sizeToFit()
+        storyLabel.text = champion.lore
+        
     }
 }
 

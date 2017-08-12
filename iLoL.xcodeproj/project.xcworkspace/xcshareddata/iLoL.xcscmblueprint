@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "558F20E3B1194A01BA904C9EBFCBF0D65DE8A6AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "558F20E3B1194A01BA904C9EBFCBF0D65DE8A6AB" : 9223372036854775807,
+    "85A39DBE49C0C7A4719F32E5DEAA73163216C3BB" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1977CF3B-218E-4F84-8E99-264387AE8CB3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "558F20E3B1194A01BA904C9EBFCBF0D65DE8A6AB" : "iLoL\/",
+    "85A39DBE49C0C7A4719F32E5DEAA73163216C3BB" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iLoL",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iLoL.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alwongg\/test.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "558F20E3B1194A01BA904C9EBFCBF0D65DE8A6AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alwongg\/Meme2.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "85A39DBE49C0C7A4719F32E5DEAA73163216C3BB"
+    }
+  ]
+}

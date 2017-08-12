@@ -1,5 +1,5 @@
 //
-//  RiotAPI.swift
+//  RiotClient.swift
 //  iLoL
 //
 //  Created by Alex Wong on 8/11/17.
@@ -8,91 +8,79 @@
 
 import Foundation
 
-// MARK: - RiotClient 
+// MARK: - RiotClient
 
 class RiotClient: NSObject {
     
-    static var championsURL: URL {
-        return riotURL(locale: .enUs, tags: ["image", "stats"])
-    }
-    
+    // MARK: - Build the champion details
+
     private static func champion(fromJSON json: [String : Any]) -> ChampionDetails? {
-        guard
-            let name = json["name"] as? String,
+        guard   let name = json["name"] as? String,
             let title = json["title"] as? String,
             let championID = json["id"] as? Int,
-            
             let image = json["image"] as? [String: Any],
             let imageFull = image["full"] as? String,
-            let photo = Constants.baseImageURLString + imageFull as String?,
-            let photoURL = URL(string: photo) else {
-                
-                // Don't have enough information to construct a champion
-                return nil
-        }
+            let photo = Constants.imageURL + imageFull as String?,
+            let photoURL = URL(string: photo),
+            let lore = json["lore"] as? String
+            else    {return nil}
         
-        return ChampionDetails(name: name, title: title, championID: championID, photoURL: photoURL)
+        return ChampionDetails(name: name, title: title, championID: championID, photoURL: photoURL, lore: lore)
     }
     
+    // MARK: - Parse the JSON data
+    
     static func champions(fromJSON data: Data) -> ChampionsResult {
+        // Parse JSON with do catch block
         do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-            print(jsonObject)
-            guard
-                let jsonDictionary = jsonObject as? [AnyHashable:Any],
-                let champions = jsonDictionary["data"] as? [String:[String:Any]] else {
-                    
-                    // JSON structure does not meet our expectations
-                    return .failure(RiotError.invalidJSONData)
-            }
+            let parsedResult = try JSONSerialization.jsonObject(with: data, options: [])
+            print(parsedResult)
+            
+            // if data exist, assign to dict
+            guard   let dataDict = parsedResult as? [AnyHashable:Any],
+                let champions = dataDict["data"] as? [String:[String:Any]]
+                // if data does not exist, show fail msg
+                else {return .failure(RiotError.noData)}
             
             var championsList = [ChampionDetails]()
-            for (_, championJSON) in champions {
-                if let champion = champion(fromJSON: championJSON) {
+            for (key, dict) in champions {
+                if let champion = champion(fromJSON: dict) {
                     championsList.append(champion)
                 }
             }
             
-            if championsList.isEmpty && !champions.isEmpty {
-                // Was not able to parse any of the champions
-                return .failure(RiotError.invalidJSONData)
-            }
-            
+            // sort by name
             championsList.sort { $0.name < $1.name }
             
             return .success(championsList)
-        } catch let error {
-            return .failure(error)
+        } catch {
+            return error as! ChampionsResult
         }
     }
     
-    enum RiotError: Error {
-        case invalidJSONData
+    // Build URL from parameters with image and lore tags
+    
+    static var championsURL: URL {
+        return riotURLFromParameters(locale: .enUS, tags: ["image", "lore"])
     }
     
-    enum Locale: String {
-        case enUs = "en_US"
-    }
-
+    // MARK: - Helper for Creating a URL From Parameters
     
-    private static func riotURL(locale: Locale, tags: Set<String>?) -> URL {
-        var components = URLComponents(string: Constants.baseURLString)!
+    private static func riotURLFromParameters(locale: Locale, tags: Set<String>?) -> URL {
+        var components = URLComponents(string: Constants.championURL)!
         
         var queryItems = [URLQueryItem]()
         
-        let baseParams = [
-            "locale": locale.rawValue,
-            "dataById": "false",
-            "api_key": Constants.apiKey
-        ]
+        // Build with YOUR API -> Change API in RiotConstants file
+        let API = ["api_key": Constants.APIKey]
         
-        for (key, value) in baseParams {
+        for (key, value) in API {
             let item = URLQueryItem(name: key, value: value)
             queryItems.append(item)
         }
-        
-        if let additionalTags = tags {
-            for tag in additionalTags {
+    
+        if let tags = tags {
+            for tag in tags {
                 let item = URLQueryItem(name: "tags", value: tag)
                 queryItems.append(item)
             }

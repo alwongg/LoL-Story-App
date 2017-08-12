@@ -1,5 +1,5 @@
 //
-//  ImageStore.swift
+//  ImageCoreData.swift
 //  iLoL
 //
 //  Created by Alex Wong on 8/10/17.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ImageStore {
+class ImageStorage {
     
     let cache = NSCache<NSString, UIImage>()
     

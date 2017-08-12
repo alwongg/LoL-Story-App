@@ -15,20 +15,18 @@ class ChampionDetails {
     let title: String
     let championID: Int
     let photoURL: URL
+    let lore: String
 
     
-    init(name: String, title: String, championID: Int, photoURL: URL) {
+    init(name: String, title: String, championID: Int, photoURL: URL, lore: String) {
         
         self.name = name
         self.title = title
         self.championID = championID
         self.photoURL = photoURL
+        self.lore = lore
 
     }
 }
 
-extension ChampionDetails: Equatable {
-    static func == (lhs: ChampionDetails, rhs: ChampionDetails) -> Bool {
-        return lhs.championID == rhs.championID
-    }
-}
+

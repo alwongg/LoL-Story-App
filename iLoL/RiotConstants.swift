@@ -11,19 +11,31 @@ import Foundation
 // MARK: - RiotClient (Constants)
 
 extension RiotClient{
-
+    
+    // MARK: - Riot Error
+    
+    enum RiotError: Error {
+        case noData
+    }
+    
+    // MARK: - Locale code for returned data
+    
+    enum Locale: String {
+        case enUS = "en_US"
+    }
+    
     // MARK: - Constants
     
     struct Constants{
         
         // MARK: - API Key
         
-        static let apiKey = "RGAPI-94948d0a-f2b2-4932-b0c3-498596ef70e7"
+        static let APIKey = "RGAPI-ff5ba6e5-442a-41a3-9ae8-0e0500d18fe4"
         
         // MARK: - URLs
         
-        static let baseURLString = "https://na1.api.riotgames.com/lol/static-data/v3/champions"
-        static let baseImageURLString = "https://ddragon.leagueoflegends.com/cdn/7.14.1/img/champion/"
+        static let championURL = "https://na1.api.riotgames.com/lol/static-data/v3/champions"
+        static let imageURL = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/"
     }
     
     
