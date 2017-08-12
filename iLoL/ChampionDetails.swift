@@ -1,5 +1,5 @@
 //
-//  Champion.swift
+//  ChampionDetails.swift
 //  iLoL
 //
 //  Created by Alex Wong on 8/2/17.

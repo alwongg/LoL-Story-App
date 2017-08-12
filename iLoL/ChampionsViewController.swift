@@ -89,9 +89,9 @@ extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDat
         store.getChampionImage(for: champion) { (result) -> Void in
             
             guard let championIndex = self.champions.index(of: champion),
-                case let .success(image) = result else {
-                    return
-            }
+                case let .success(image) = result
+                else {return}
+            
             let championIndexPath = IndexPath(item: championIndex, section: 0)
             
             if let cell = self.collectionView.cellForItem(at: championIndexPath) as? ChampionCollectionViewCell {

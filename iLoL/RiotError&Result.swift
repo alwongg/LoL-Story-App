@@ -9,7 +9,7 @@
 import Foundation
 
 enum ChampionError: Error {
-    case championImageCreationError
+    case invalidChampionImage
 }
 
 enum ChampionsResult {

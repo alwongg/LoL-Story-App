@@ -32,7 +32,7 @@ class ChampionStorage {
                 if data == nil {
                     return .fail(error!)
                 } else {
-                    return .fail(ChampionError.championImageCreationError)
+                    return .fail(ChampionError.invalidChampionImage)
                 }
         }
         

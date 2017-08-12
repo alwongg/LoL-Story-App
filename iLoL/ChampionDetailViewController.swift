@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChampionDetailViewController.swift
 //  iLoL
 //
 //  Created by Alex Wong on 8/2/17.
@@ -31,7 +31,7 @@ class ChampionDetailViewController: UIViewController {
         
         nameLabel.text = champion.name
         titleLabel.text = champion.title
-        storyLabel.text = champion.lore
+        storyLabel.text = champion.lore.replacingOccurrences(of: "<br>", with: "\n")
         
         storage.getChampionImage(for: champion) { (result) -> Void in
             
