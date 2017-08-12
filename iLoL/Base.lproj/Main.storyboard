@@ -57,7 +57,7 @@
                                         <connections>
                                             <outlet property="activityLoader" destination="VsS-f3-NU6" id="xNE-qc-Re4"/>
                                             <outlet property="imageView" destination="Dwe-cc-ObH" id="EtX-BB-uMD"/>
-                                            <segue destination="N0I-qF-748" kind="show" identifier="showPhoto" id="Szm-bm-lgm">
+                                            <segue destination="N0I-qF-748" kind="show" identifier="showStory" id="Szm-bm-lgm">
                                                 <nil key="action"/>
                                             </segue>
                                         </connections>

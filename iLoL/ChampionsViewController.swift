@@ -32,7 +32,7 @@ class ChampionsViewController: UIViewController {
         
         // Get and display champions
         
-        store.fetchChampions {
+        store.getChampion {
             (championsResult) -> Void in
             
             switch championsResult {
@@ -57,18 +57,14 @@ class ChampionsViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showPhoto"?:
+        if segue.identifier == "showStory" {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-                
                 let champion = self.champions[selectedIndexPath.row]
                 
                 let destinationVC = segue.destination as! ChampionDetailViewController
                 destinationVC.champion = champion
                 destinationVC.storage = store
             }
-        default:
-            preconditionFailure("Unexpected segue identifier.")
         }
     }
 }

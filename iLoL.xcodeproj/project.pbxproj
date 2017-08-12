@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA5F6D2A1F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F6D291F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift */; };
 		FA5F6D361F3EB04C00DF71FF /* RiotError&Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F6D351F3EB04C00DF71FF /* RiotError&Result.swift */; };
-		FA5F6D3A1F3EB96A00DF71FF /* poro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5F6D391F3EB96A00DF71FF /* poro.jpg */; };
+		FA897DF71F3EE4C700E06FC8 /* StartupScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA897DF61F3EE4C700E06FC8 /* StartupScreen.jpg */; };
 		FA8EB3DE1F3D7052003FEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3DD1F3D7052003FEE0D /* AppDelegate.swift */; };
 		FA8EB3E01F3D7052003FEE0D /* ChampionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EB3DF1F3D7052003FEE0D /* ChampionDetailViewController.swift */; };
 		FA8EB3E31F3D7052003FEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8EB3E11F3D7052003FEE0D /* Main.storyboard */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		FA5F6D291F3E8C7A00DF71FF /* ChampionDetailsEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetailsEquatable.swift; sourceTree = "<group>"; };
 		FA5F6D351F3EB04C00DF71FF /* RiotError&Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RiotError&Result.swift"; sourceTree = "<group>"; };
-		FA5F6D391F3EB96A00DF71FF /* poro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = poro.jpg; sourceTree = "<group>"; };
+		FA897DF61F3EE4C700E06FC8 /* StartupScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StartupScreen.jpg; sourceTree = "<group>"; };
 		FA8EB3DA1F3D7052003FEE0D /* iLoL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLoL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8EB3DD1F3D7052003FEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA8EB3DF1F3D7052003FEE0D /* ChampionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				FA8EB3E71F3D7052003FEE0D /* Assets.xcassets */,
 				FA8EB3E91F3D7052003FEE0D /* LaunchScreen.storyboard */,
 				FA8EB3EC1F3D7052003FEE0D /* Info.plist */,
-				FA5F6D391F3EB96A00DF71FF /* poro.jpg */,
+				FA897DF61F3EE4C700E06FC8 /* StartupScreen.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA897DF71F3EE4C700E06FC8 /* StartupScreen.jpg in Resources */,
 				FA8EB3EB1F3D7052003FEE0D /* LaunchScreen.storyboard in Resources */,
 				FA8EB3E81F3D7052003FEE0D /* Assets.xcassets in Resources */,
-				FA5F6D3A1F3EB96A00DF71FF /* poro.jpg in Resources */,
 				FA8EB3E31F3D7052003FEE0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

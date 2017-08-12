@@ -43,7 +43,8 @@ class ChampionStorage {
     
     func getChampionImage(for champion: ChampionDetails, completion: @escaping (ChampionImageResult) -> Void) {
         
-        let photoKey = String(champion.championID)
+        let championIDString = String(champion.championID)
+        let photoKey = championIDString
         if let image = imageStore.image(forKey: photoKey) {
             DispatchQueue.main.async(execute: {
                 completion(.success(image)
@@ -68,7 +69,9 @@ class ChampionStorage {
         task.resume()
     }
     
-    private func processChampionsRequest(data: Data?, error: Error?) -> ChampionsResult {
+    // MARK: - Champion Request
+    
+    private func prepareChampionRequest(data: Data?, error: Error?) -> ChampionsResult {
         guard let jsonData = data else {
             return .failure(error!)
         }
@@ -76,12 +79,14 @@ class ChampionStorage {
         return RiotClient.champions(fromJSON: jsonData)
     }
     
-    func fetchChampions(completion: @escaping (ChampionsResult) -> Void) {
+    // MARK: - Get the champion
+    
+    func getChampion(completion: @escaping (ChampionsResult) -> Void) {
         let url = RiotClient.championsURL
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         
-            let result = self.processChampionsRequest(data: data, error: error)
+            let result = self.prepareChampionRequest(data: data, error: error)
             DispatchQueue.main.async(execute: {
                 completion(result)
             })
