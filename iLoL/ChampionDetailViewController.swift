@@ -22,8 +22,9 @@ class ChampionDetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet weak var storyLabel: UILabel!
+ 
     
+    @IBOutlet weak var storyTextView: UITextView!
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class ChampionDetailViewController: UIViewController {
         
         nameLabel.text = champion.name
         titleLabel.text = champion.title
-        storyLabel.text = champion.lore.replacingOccurrences(of: "<br>", with: "\n")
+        storyTextView.text = champion.lore.replacingOccurrences(of: "<br>", with: "\n")
         
         storage.getChampionImage(for: champion) { (result) -> Void in
             
