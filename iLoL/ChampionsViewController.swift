@@ -32,20 +32,18 @@ class ChampionsViewController: UIViewController {
         
         // Get and display champions
         
-        store.getChampion {
-            (championsResult) -> Void in
+        store.getChampion {(championsResult) -> Void in
             
             switch championsResult {
             case let .success(champions):
-                print("Successfully found \(champions.count) champions.")
+                print("\(champions.count) champions loaded!")
                 self.champions = champions
             case let .failure(error):
-                print("Error fetching champions: \(error)")
+                print(error)
                 self.champions.removeAll()
             }
-            self.collectionView.reloadSections(IndexSet(integer: 0))
+            self.collectionView.reloadData()
         }
-        
     }
     
     // MARK: - ConfigUI
