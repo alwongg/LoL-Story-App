@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// MARK: - ImageStorage
+
 class ImageStorage {
     
     let cache = NSCache<NSString, UIImage>()

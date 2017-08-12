@@ -17,19 +17,15 @@ class ChampionStorage {
     
     let imageStore = ImageStorage()
     
-    private let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
-    }()
-    
     enum ChampionImageResult {
         case success(UIImage)
         case fail(Error)
     }
     
-    private func processChampionImageRequest(data: Data?, error: Error?) -> ChampionImageResult {
-        guard
-            let imageData = data,
+    // MARK: - Champion Image Request
+    
+    private func prepareChampionImage(data: Data?, error: Error?) -> ChampionImageResult {
+        guard let imageData = data,
             let image = UIImage(data: imageData) else {
                 
                 // Couldn't create an image
@@ -43,31 +39,31 @@ class ChampionStorage {
         return .success(image)
     }
     
-    func fetchChampionImage(for champion: ChampionDetails, completion: @escaping (ChampionImageResult) -> Void) {
+    // MARK: - Get the request image
+    
+    func getChampionImage(for champion: ChampionDetails, completion: @escaping (ChampionImageResult) -> Void) {
         
         let photoKey = String(champion.championID)
         if let image = imageStore.image(forKey: photoKey) {
-            OperationQueue.main.addOperation {
-                completion(.success(image))
-            }
-            return
+            DispatchQueue.main.async(execute: {
+                completion(.success(image)
+            )})
+           return
         }
         
         let photoURL = champion.photoURL
         let request = URLRequest(url: photoURL)
         
-        let task = session.dataTask(with: request) {
-            (data, response, error) -> Void in
-            
-            let result = self.processChampionImageRequest(data: data, error: error)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+ 
+            let result = self.prepareChampionImage(data: data, error: error)
             
             if case let .success(image) = result {
                 self.imageStore.setImage(image, forKey: photoKey)
             }
-            
-            OperationQueue.main.addOperation {
+            DispatchQueue.main.async(execute: {
                 completion(result)
-            }
+            })
         }
         task.resume()
     }
@@ -83,13 +79,12 @@ class ChampionStorage {
     func fetchChampions(completion: @escaping (ChampionsResult) -> Void) {
         let url = RiotClient.championsURL
         let request = URLRequest(url: url)
-        let task = session.dataTask(with: request) {
-            (data, response, error) -> Void in
-            
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        
             let result = self.processChampionsRequest(data: data, error: error)
-            OperationQueue.main.addOperation {
+            DispatchQueue.main.async(execute: {
                 completion(result)
-            }
+            })
         }
         task.resume()
     }

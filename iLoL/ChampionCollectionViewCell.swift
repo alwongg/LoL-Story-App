@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 // MARK: - ChampionCollectionViewCell
 
@@ -21,23 +22,22 @@ class ChampionCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        update(with: nil)
+        updateUI(with: nil)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        update(with: nil)
+        updateUI(with: nil)
     }
     
-    func update(with image: UIImage?) {
-        if let imageToDisplay = image {
+    // MARK: - Update Method
+    
+    func updateUI(with image: UIImage?) {
+        if let displayImage = image {
             activityLoader.stopAnimating()
-            imageView.image = imageToDisplay
+            imageView.image = displayImage
         } else {
             activityLoader.startAnimating()
-            imageView.image = nil
         }
     }
 }

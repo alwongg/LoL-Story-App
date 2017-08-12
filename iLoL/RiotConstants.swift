@@ -35,7 +35,7 @@ extension RiotClient{
         // MARK: - URLs
         
         static let championURL = "https://na1.api.riotgames.com/lol/static-data/v3/champions"
-        static let imageURL = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/"
+        static let imageURL = "https://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/"
     }
     
     

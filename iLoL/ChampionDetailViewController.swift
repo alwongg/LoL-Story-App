@@ -29,7 +29,7 @@ class ChampionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storage.fetchChampionImage(for: champion) { (result) -> Void in
+        storage.getChampionImage(for: champion) { (result) -> Void in
             switch result {
             case let .success(image):
                 self.imageView.image = image

@@ -11,7 +11,7 @@ import UIKit
 // MARK: - ChampionsViewController
 
 class ChampionsViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     var champions = [ChampionDetails]()
@@ -25,8 +25,13 @@ class ChampionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont(name: "BradleyHandITCTT-Bold", size: 30)!]
-
+        
+        // Change the font to BradleyHandITCTT-Bold
+        
+        configUI()
+        
+        // Get and display champions
+        
         store.fetchChampions {
             (championsResult) -> Void in
             
@@ -41,6 +46,12 @@ class ChampionsViewController: UIViewController {
             self.collectionView.reloadSections(IndexSet(integer: 0))
         }
         
+    }
+    
+    // MARK: - ConfigUI
+    
+    func configUI() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont(name: "BradleyHandITCTT-Bold", size: 30)!]
     }
     
     // MARK: - Navigation
@@ -81,7 +92,7 @@ extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDat
         let champion = self.champions[indexPath.row]
         
         // Download the image data
-        store.fetchChampionImage(for: champion) { (result) -> Void in
+        store.getChampionImage(for: champion) { (result) -> Void in
             
             guard let championIndex = self.champions.index(of: champion),
                 case let .success(image) = result else {
@@ -90,10 +101,10 @@ extension ChampionsViewController: UICollectionViewDelegate, UICollectionViewDat
             let championIndexPath = IndexPath(item: championIndex, section: 0)
             
             if let cell = self.collectionView.cellForItem(at: championIndexPath) as? ChampionCollectionViewCell {
-                cell.update(with: image)
+                cell.updateUI(with: image)
             }
         }
     }
-
+    
     
 }
