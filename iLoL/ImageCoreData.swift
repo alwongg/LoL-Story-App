@@ -2,7 +2,7 @@
 //  ImageCoreData.swift
 //  iLoL
 //
-//  Created by Alex Wong on 8/10/17.
+//  Created by Alex Wong on 8/2/17.
 //  Copyright © 2017 Alex Wong. All rights reserved.
 //
 
@@ -13,7 +13,11 @@ import UIKit
 
 class ImageStorage {
     
+    // MARK: - Properties
+    
     let cache = NSCache<NSString, UIImage>()
+    
+    // MARK: - Image Methods
     
     func imageURL(forKey key: String) -> URL {
         
@@ -60,7 +64,7 @@ class ImageStorage {
         do {
             try FileManager.default.removeItem(at: url)
         } catch {
-            print("Error removing the image from disk: \(error)")
+            print(error)
         }
     }
     

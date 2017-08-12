@@ -2,7 +2,7 @@
 //  ChampionCoreData.swift
 //  iLoL
 //
-//  Created by Alex Wong on 8/10/17.
+//  Created by Alex Wong on 8/2/17.
 //  Copyright © 2017 Alex Wong. All rights reserved.
 //
 
