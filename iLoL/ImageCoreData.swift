@@ -44,11 +44,11 @@ class ImageStorage {
         } else {
             let invalidImageUrl = imageURL(forKey: key)
             
-            guard let imageFromDisk = UIImage(contentsOfFile: invalidImageUrl.path)
+            guard let localImage = UIImage(contentsOfFile: invalidImageUrl.path)
                 else {return nil}
             
-            cache.setObject(imageFromDisk, forKey: key as NSString)
-            return imageFromDisk
+            cache.setObject(localImage, forKey: key as NSString)
+            return localImage
         }
     }
     

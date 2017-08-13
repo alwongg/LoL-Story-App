@@ -40,7 +40,7 @@ class RiotClient: NSObject {
             guard   let dataDict = parsedResult as? [AnyHashable:Any],
                 let champions = dataDict["data"] as? [String:[String:Any]]
                 // if data does not exist, show fail msg
-                else {return .failure(RiotError.noData)}
+                else {return .failure(RiotError.NoDataRetrieved)}
             
             var championsList = [ChampionDetails]()
             for (key, dict) in champions {

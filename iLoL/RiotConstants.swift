@@ -15,7 +15,7 @@ extension RiotClient{
     // MARK: - Riot Error
     
     enum RiotError: Error {
-        case noData
+        case NoDataRetrieved
     }
     
     // MARK: - Locale code for returned data
@@ -30,7 +30,7 @@ extension RiotClient{
         
         // MARK: - API Key
         
-        static let APIKey = "RGAPI-890f3247-01d6-4309-bc34-d4247d9d7bc4"
+        static let APIKey = "Enter Your API!"
         
         // MARK: - URLs
         

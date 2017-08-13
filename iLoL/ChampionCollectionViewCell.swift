@@ -16,7 +16,7 @@ class ChampionCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
+    @IBOutlet var activityLoader: UIActivityIndicatorView!
     
     // MARK: - View Lifecycle
     
