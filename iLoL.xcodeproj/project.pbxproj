@@ -91,7 +91,6 @@
 				FA8EB3F31F3D7062003FEE0D /* View */,
 				FA8EB3F21F3D705C003FEE0D /* Controller */,
 				FA8EB3F51F3D706B003FEE0D /* Supporting Files */,
-				FA6D57671F40EB3C00BB6182 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = iLoL;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 		FA8EB3FA1F3D7158003FEE0D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				FA6D57671F40EB3C00BB6182 /* CoreDataModel.xcdatamodeld */,
 				FA5F6D2E1F3E9B1200DF71FF /* RiotStore */,
 			);
 			name = CoreData;

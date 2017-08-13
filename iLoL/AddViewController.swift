@@ -8,28 +8,65 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+// MARK: - AddViewController
 
+class AddViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var isImp: UISwitch!
+    
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - IBActions
+    
+    @IBAction func addStory(_ sender: Any) {
+        print("Story added")
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = Task(context: context)
+        task.name = textField.text!
+        task.isImportant = isImp.isOn
+        
+        // Save the data to Core Data
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
+ 
     }
-    */
+    
+}
 
+// MARK: - UITextFieldDelegate
+
+extension AddViewController: UITextFieldDelegate{
+
+    // MARK: - Dismiss keyboard when touch outside
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    
+    // MARK: - Dismiss keyboard when return button pressed
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        addStory(self)
+        return true
+    }
 }

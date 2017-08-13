@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PartyLET.ttf">
+            <string>PartyLetPlain</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Champions-->
         <scene sceneID="mwQ-hh-1j9">
@@ -94,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="-1662" y="501"/>
         </scene>
-        <!--To Read View Controller-->
+        <!--To Read List-->
         <scene sceneID="7c3-P9-UWA">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ddQ-qu-zG7" customClass="ToReadViewController" customModule="iLoL" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,11 +125,15 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ddQ-qu-zG7" id="2rY-oY-4bp"/>
+                                    <outlet property="delegate" destination="ddQ-qu-zG7" id="6tv-Uj-oUV"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QVs-lM-R66">
+                    <navigationItem key="navigationItem" title="To Read List" id="QVs-lM-R66">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="c8H-tm-Re4">
                             <connections>
                                 <action selector="cancel:" destination="ddQ-qu-zG7" id="2DC-sb-rLo"/>
@@ -136,6 +145,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FXH-fo-l9z" id="9ux-fD-JGm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX9-ng-qvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,8 +164,43 @@
                     <view key="view" contentMode="scaleToFill" id="Ew9-ZO-Q0h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What story are you planning to read next?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-dP-TOC">
+                                <rect key="frame" x="60" y="84" width="294" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="P4H-Gh-OUE" id="cPr-10-6By"/>
+                                </connections>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chI-fQ-mmg">
+                                <rect key="frame" x="183" y="141" width="51" height="31"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6d-6d-hLY">
+                                <rect key="frame" x="173" y="199" width="68" height="30"/>
+                                <state key="normal" title="Add Story"/>
+                                <connections>
+                                    <action selector="addStory:" destination="P4H-Gh-OUE" eventType="touchUpInside" id="58y-hc-LRI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="chI-fQ-mmg" firstAttribute="centerX" secondItem="Ew9-ZO-Q0h" secondAttribute="centerX" id="1ib-4u-Aaz"/>
+                            <constraint firstItem="k6d-6d-hLY" firstAttribute="top" secondItem="chI-fQ-mmg" secondAttribute="bottom" constant="27" id="38K-zU-kYT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dq7-dP-TOC" secondAttribute="trailing" constant="40" id="D69-jF-dgy"/>
+                            <constraint firstItem="Dq7-dP-TOC" firstAttribute="centerX" secondItem="Ew9-ZO-Q0h" secondAttribute="centerX" id="SRd-o8-G1a"/>
+                            <constraint firstItem="Dq7-dP-TOC" firstAttribute="leading" secondItem="Ew9-ZO-Q0h" secondAttribute="leadingMargin" constant="40" id="Xg3-GW-sZ1"/>
+                            <constraint firstItem="chI-fQ-mmg" firstAttribute="top" secondItem="Dq7-dP-TOC" secondAttribute="bottom" constant="27" id="fFQ-ad-pfV"/>
+                            <constraint firstItem="Dq7-dP-TOC" firstAttribute="top" secondItem="YVY-WP-G4J" secondAttribute="bottom" constant="20" id="xLN-2y-02p"/>
+                            <constraint firstItem="k6d-6d-hLY" firstAttribute="centerX" secondItem="chI-fQ-mmg" secondAttribute="centerX" id="yEr-EM-Ojj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="isImp" destination="chI-fQ-mmg" id="sPH-3q-DPB"/>
+                        <outlet property="textField" destination="Dq7-dP-TOC" id="H5I-h5-0yf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0U-eW-TU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
