@@ -26,44 +26,36 @@ class ChampionStorage {
     
     private func prepareChampionImage(data: Data?, error: Error?) -> ChampionImageResult {
         guard let imageData = data,
-            let image = UIImage(data: imageData) else {
-                
-                // Couldn't create an image
-                if data == nil {
-                    return .fail(error!)
-                } else {
-                    return .fail(ChampionError.invalidChampionImage)
-                }
-        }
-        
+            let image = UIImage(data: imageData)
+            else {return .fail(ChampionError.invalidChampionImage)}
         return .success(image)
     }
     
     // MARK: - Get the request image
     
-    func getChampionImage(for champion: ChampionDetails, completion: @escaping (ChampionImageResult) -> Void) {
+    func getChampionImage(for champion: ChampionDetails, completionHandler: @escaping (ChampionImageResult) -> Void) {
         
         let championIDString = String(champion.championID)
-        let photoKey = championIDString
-        if let image = imageStore.image(forKey: photoKey) {
+        let photoID = championIDString
+        if let image = imageStore.image(forKey: photoID) {
             DispatchQueue.main.async(execute: {
-                completion(.success(image)
-            )})
-           return
+                completionHandler(.success(image)
+                )})
+            return
         }
         
         let photoURL = champion.photoURL
         let request = URLRequest(url: photoURL)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
- 
+            
             let result = self.prepareChampionImage(data: data, error: error)
             
             if case let .success(image) = result {
-                self.imageStore.setImage(image, forKey: photoKey)
+                self.imageStore.setImage(image, forKey: photoID)
             }
             DispatchQueue.main.async(execute: {
-                completion(result)
+                completionHandler(result)
             })
         }
         task.resume()
@@ -71,7 +63,7 @@ class ChampionStorage {
     
     // MARK: - Champion Request
     
-    private func prepareChampionRequest(data: Data?, error: Error?) -> ChampionsResult {
+    private func prepareChampionDataRequest(data: Data?, error: Error?) -> ChampionsResult {
         guard let jsonData = data else {
             return .failure(error!)
         }
@@ -81,18 +73,17 @@ class ChampionStorage {
     
     // MARK: - Get the champion
     
-    func getChampion(completion: @escaping (ChampionsResult) -> Void) {
+    func getChampionData(completion: @escaping (ChampionsResult) -> Void) {
         let url = RiotClient.championsURL
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        
-            let result = self.prepareChampionRequest(data: data, error: error)
+            
+            let result = self.prepareChampionDataRequest(data: data, error: error)
             DispatchQueue.main.async(execute: {
                 completion(result)
             })
         }
         task.resume()
     }
-    
     
 }

@@ -32,7 +32,7 @@ class ChampionsViewController: UIViewController {
         
         // Get and display champions
         
-        store.getChampion {(championsResult) -> Void in
+        store.getChampionData {(championsResult) -> Void in
             
             switch championsResult {
             case let .success(champions):

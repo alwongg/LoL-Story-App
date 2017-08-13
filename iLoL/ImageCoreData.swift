@@ -21,10 +21,10 @@ class ImageStorage {
     
     func imageURL(forKey key: String) -> URL {
         
-        let documentsDirectories =
+        let documentsDirectory =
             FileManager.default.urls(for: .documentDirectory,
                                      in: .userDomainMask)
-        let documentDirectory = documentsDirectories.first!
+        let documentDirectory = documentsDirectory.first!
         
         return documentDirectory.appendingPathComponent(key)
     }
@@ -32,25 +32,20 @@ class ImageStorage {
     func setImage(_ image: UIImage, forKey key: String) {
         cache.setObject(image, forKey: key as NSString)
         
-        // Create full URL for image
-        let url = imageURL(forKey: key)
-        
-        // Turn image into JPEG data
-        if let data = UIImageJPEGRepresentation(image, 0.5) {
-            // Write it to full URL
-            let _ = try? data.write(to: url, options: [.atomic])
+        let imageURLs = imageURL(forKey: key)
+        if let jpegData = UIImageJPEGRepresentation(image, 0.5) {
+            let completeImageURL = try? jpegData.write(to: imageURLs, options: [.atomic])
         }
     }
     
     func image(forKey key: String) -> UIImage? {
-        if let existingImage = cache.object(forKey: key as NSString) {
-            return existingImage
+        if let validImage = cache.object(forKey: key as NSString) {
+            return validImage
         } else {
-            let url = imageURL(forKey: key)
+            let invalidImageUrl = imageURL(forKey: key)
             
-            guard let imageFromDisk = UIImage(contentsOfFile: url.path) else {
-                return nil
-            }
+            guard let imageFromDisk = UIImage(contentsOfFile: invalidImageUrl.path)
+                else {return nil}
             
             cache.setObject(imageFromDisk, forKey: key as NSString)
             return imageFromDisk
@@ -60,9 +55,9 @@ class ImageStorage {
     func deleteImage(forKey key: String) {
         cache.removeObject(forKey: key as NSString)
         
-        let url = imageURL(forKey: key)
+        let deleteURL = imageURL(forKey: key)
         do {
-            try FileManager.default.removeItem(at: url)
+            try FileManager.default.removeItem(at: deleteURL)
         } catch {
             print(error)
         }
