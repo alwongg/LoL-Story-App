@@ -24,17 +24,13 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mYe-eW-ssg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" red="0.15539693069999999" green="0.63473585740000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.75474880580000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4sD-jc-Nxo">
                                     <size key="itemSize" width="80" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poro" id="Wog-5f-dpQ">
-                                    <rect key="frame" x="0.0" y="-64" width="414" height="736"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChampionCollectionViewCell" id="lH4-ff-TJY" customClass="ChampionCollectionViewCell" customModule="iLoL" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="80" height="80"/>
@@ -68,23 +64,31 @@
                                     <outlet property="delegate" destination="I9N-Qw-Gyy" id="E3v-mj-pV9"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="psc-6Z-Bw6">
+                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.75474880582337045" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tlt-MR-k05" firstAttribute="top" secondItem="mYe-eW-ssg" secondAttribute="bottom" id="0Df-Ul-0Ib"/>
                             <constraint firstAttribute="trailing" secondItem="mYe-eW-ssg" secondAttribute="trailing" id="QXh-Cj-Kdf"/>
+                            <constraint firstItem="psc-6Z-Bw6" firstAttribute="centerX" secondItem="Rjc-LL-g4j" secondAttribute="centerX" id="SXz-5f-vIF"/>
                             <constraint firstItem="mYe-eW-ssg" firstAttribute="leading" secondItem="Rjc-LL-g4j" secondAttribute="leading" id="Yzs-Yf-JZ4"/>
+                            <constraint firstItem="psc-6Z-Bw6" firstAttribute="centerY" secondItem="Rjc-LL-g4j" secondAttribute="centerY" id="kBJ-6m-74n"/>
                             <constraint firstItem="mYe-eW-ssg" firstAttribute="top" secondItem="Rjc-LL-g4j" secondAttribute="top" id="slp-mv-X9J"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Champions" id="3sI-P6-qGL"/>
+                    <navigationItem key="navigationItem" title="Champions" id="3sI-P6-qGL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="bO3-WU-fB1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="mYe-eW-ssg" id="RTY-Ag-4MA"/>
+                        <outlet property="loader" destination="psc-6Z-Bw6" id="ZUK-h6-7u5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZA4-hI-wP5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8184.8000000000002" y="98.50074962518741"/>
+            <point key="canvasLocation" x="-1662" y="501"/>
         </scene>
         <!--Champion Detail View Controller-->
         <scene sceneID="zAz-d7-pBW">
@@ -105,13 +109,13 @@
                                         <rect key="frame" x="137" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khs-EB-036">
-                                        <rect key="frame" x="0.0" y="120" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="120" width="374" height="36.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdq-v7-VRJ">
-                                        <rect key="frame" x="0.0" y="176" width="374" height="22"/>
+                                        <rect key="frame" x="0.0" y="176.33333333333331" width="374" height="21.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -126,34 +130,41 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYm-ki-Z4d">
-                                <rect key="frame" x="169" y="307" width="77" height="59"/>
+                                <rect key="frame" x="168.66666666666666" y="307" width="76.666666666666686" height="58.333333333333314"/>
                                 <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GwQ-Xs-Cnl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GwQ-Xs-Cnl">
                                 <rect key="frame" x="20" y="361" width="374" height="355"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c0j-Me-J2F">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c0j-Me-J2F">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="355"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.30778046920000002" green="0.78957318840000001" blue="0.83869368649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.75474880580000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="c0j-Me-J2F" firstAttribute="leading" secondItem="GwQ-Xs-Cnl" secondAttribute="leading" id="0X1-qh-Khv"/>
+                                    <constraint firstAttribute="bottom" secondItem="c0j-Me-J2F" secondAttribute="bottom" id="4cQ-p5-79B"/>
+                                    <constraint firstItem="c0j-Me-J2F" firstAttribute="top" secondItem="GwQ-Xs-Cnl" secondAttribute="top" id="XQf-PW-ucs"/>
+                                    <constraint firstItem="c0j-Me-J2F" firstAttribute="centerX" secondItem="GwQ-Xs-Cnl" secondAttribute="centerX" id="anN-hL-4UI"/>
+                                    <constraint firstAttribute="trailing" secondItem="c0j-Me-J2F" secondAttribute="trailing" id="lN4-Er-bX3"/>
+                                    <constraint firstItem="c0j-Me-J2F" firstAttribute="centerY" secondItem="GwQ-Xs-Cnl" secondAttribute="centerY" id="oEj-pu-fTu"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.30778046917300472" green="0.78957318836372625" blue="0.83869368654822329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.75474880580000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="leading" secondItem="HbQ-Xo-d0D" secondAttribute="leading" id="25I-CM-vtm"/>
+                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="trailing" secondItem="HbQ-Xo-d0D" secondAttribute="trailing" id="0uK-v2-r0V"/>
                             <constraint firstItem="HbQ-Xo-d0D" firstAttribute="top" secondItem="4yD-RS-PKL" secondAttribute="bottom" constant="37" id="3Is-Zd-zGD"/>
-                            <constraint firstAttribute="bottom" secondItem="GwQ-Xs-Cnl" secondAttribute="bottom" constant="20" symbolic="YES" id="OGO-zg-5bk"/>
+                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="top" secondItem="HbQ-Xo-d0D" secondAttribute="bottom" constant="62" id="Jo2-IT-cNg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HbQ-Xo-d0D" secondAttribute="trailing" id="QNN-I0-tBg"/>
-                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="top" secondItem="HbQ-Xo-d0D" secondAttribute="bottom" constant="62" id="V4S-aH-7hb"/>
                             <constraint firstItem="HbQ-Xo-d0D" firstAttribute="leading" secondItem="I6f-Ja-CgN" secondAttribute="leadingMargin" id="YHg-cF-lxe"/>
                             <constraint firstItem="fYm-ki-Z4d" firstAttribute="top" secondItem="HbQ-Xo-d0D" secondAttribute="bottom" constant="8" id="hMg-eo-XR8"/>
-                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="trailing" secondItem="HbQ-Xo-d0D" secondAttribute="trailing" id="mA4-oW-dfW"/>
+                            <constraint firstItem="GwQ-Xs-Cnl" firstAttribute="leading" secondItem="HbQ-Xo-d0D" secondAttribute="leading" id="vWO-bN-z8O"/>
+                            <constraint firstAttribute="bottom" secondItem="GwQ-Xs-Cnl" secondAttribute="bottom" constant="20" symbolic="YES" id="wIt-VI-7V2"/>
                             <constraint firstItem="fYm-ki-Z4d" firstAttribute="centerX" secondItem="I6f-Ja-CgN" secondAttribute="centerX" id="yXt-NL-CQH"/>
                         </constraints>
                     </view>
@@ -166,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNR-HB-LiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8988.4057971014499" y="97.826086956521749"/>
+            <point key="canvasLocation" x="-859.4202898550725" y="500.54347826086962"/>
         </scene>
         <!--Item-->
         <scene sceneID="QG9-5g-1hd">
@@ -185,10 +196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52f-aJ-P7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7308" y="99"/>
+            <point key="canvasLocation" x="-2539" y="501"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="poro" width="640" height="960"/>
-    </resources>
 </document>

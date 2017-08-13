@@ -20,6 +20,7 @@ class ChampionsViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - View Lifecycle
     
@@ -36,14 +37,34 @@ class ChampionsViewController: UIViewController {
             
             switch championsResult {
             case let .success(champions):
+                self.loader.alpha = 0
                 print("\(champions.count) champions loaded!")
                 self.champions = champions
             case let .failure(error):
+                self.loader.startAnimating()
                 print(error)
                 self.champions.removeAll()
+                
+                print("No internet connection")
+                self.loader.stopAnimating()
+                
+                DispatchQueue.main.async(execute: {
+                    let alertController = UIAlertController(title: "No Internet Connection!", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){(result:UIAlertAction) -> Void in
+                        return
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                   
+                })
+
+                
+                
             }
             self.collectionView.reloadData()
         }
+        
+        
     }
     
     // MARK: - ConfigUI

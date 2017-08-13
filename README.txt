@@ -2,11 +2,11 @@ Welcome!
 
 WHEN BUILDING AND ACCESSING THE APP, REPLACE THE APIKey CONSTANT WITH YOUR OWN!
 
-1. Locate the RiotConstants file in the app and go to https://developer.riotgames.com to generate your own APIKey.
+* Locate the RiotConstants file in the app and go to https://developer.riotgames.com to generate your own APIKey.
 
-2. Copy and paste your APIKey in between the double quotes beside “static let APIKey =“
+* Copy and paste your APIKey in between the double quotes beside “static let APIKey =“
 
-3. Run the project!
+* Run the project!
 
 This is my final project in the Udacity iOS Nanodegree program. It is an iOS app that allows you to read stories regarding each League of Legends Champions. Want to know more about a champion’s past? Click on the champion you are interested in and it will take you to another ViewController which contains their name, title and their lore. 
 
