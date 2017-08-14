@@ -19,11 +19,11 @@ class ChampionDetailViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var storyTextView: UITextView!
-    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var storyTextView: UITextView!
+  
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
