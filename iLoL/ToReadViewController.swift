@@ -21,18 +21,13 @@ class ToReadViewController: UIViewController {
     
     // MARK: - View Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
+       
+        super.viewWillAppear(true)
+        
         // get the data from CoreData
-        
         getData()
-        
-        // Reload the table view
+
         
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()

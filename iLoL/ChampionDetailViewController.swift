@@ -40,6 +40,18 @@ class ChampionDetailViewController: UIViewController {
                 self.imageView.image = image
             case let .fail(error):
                 print(error)
+                self.nameLabel.text = "Image not loaded"
+                
+                DispatchQueue.main.async(execute: {
+                    let alertController = UIAlertController(title: "No Internet Connection!", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){(result:UIAlertAction) -> Void in
+                        return
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                })
+
             }
         }
     }

@@ -30,7 +30,7 @@ extension RiotClient{
         
         // MARK: - API Key
         
-        static let APIKey = "RGAPI-890f3247-01d6-4309-bc34-d4247d9d7bc4"
+        static let APIKey = "RGAPI-c2d8340d-c57b-43a0-9872-01c9a549db7e"
         
         // MARK: - URLs
         

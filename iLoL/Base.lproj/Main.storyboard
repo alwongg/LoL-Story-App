@@ -120,7 +120,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V5X-xg-xIV" id="wSn-fr-fIa">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX9-ng-qvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91.304347826086968" y="-430.43478260869568"/>
+            <point key="canvasLocation" x="-1662" y="-183"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="YbW-NB-fWd">
@@ -175,10 +175,10 @@
                                 </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chI-fQ-mmg">
-                                <rect key="frame" x="183" y="141" width="51" height="31"/>
+                                <rect key="frame" x="182.66666666666666" y="141" width="51" height="31"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6d-6d-hLY">
-                                <rect key="frame" x="173" y="199" width="68" height="30"/>
+                                <rect key="frame" x="172.66666666666666" y="199" width="68" height="30"/>
                                 <state key="normal" title="Add Story"/>
                                 <connections>
                                     <action selector="addStory:" destination="P4H-Gh-OUE" eventType="touchUpInside" id="58y-hc-LRI"/>
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0U-eW-TU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747" y="-420"/>
+            <point key="canvasLocation" x="-859" y="-183"/>
         </scene>
         <!--Champion Detail View Controller-->
         <scene sceneID="zAz-d7-pBW">
@@ -241,6 +241,7 @@
                                     <constraint firstAttribute="trailing" secondItem="fdq-v7-VRJ" secondAttribute="trailing" id="O4C-p8-ops"/>
                                     <constraint firstAttribute="trailing" secondItem="khs-EB-036" secondAttribute="trailing" id="PBd-DU-Gob"/>
                                     <constraint firstItem="fdq-v7-VRJ" firstAttribute="leading" secondItem="HbQ-Xo-d0D" secondAttribute="leading" id="Twd-Lh-D43"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Ujn-P4-da0"/>
                                     <constraint firstAttribute="height" constant="197.5" id="sED-Ko-EJD"/>
                                     <constraint firstItem="khs-EB-036" firstAttribute="leading" secondItem="HbQ-Xo-d0D" secondAttribute="leading" id="t3j-1J-8wf"/>
                                 </constraints>
@@ -330,7 +331,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guv-MZ-6Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-998.55072463768124" y="-430.43478260869568"/>
+            <point key="canvasLocation" x="-2539" y="-183"/>
         </scene>
     </scenes>
 </document>

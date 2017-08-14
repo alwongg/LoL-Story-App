@@ -17,19 +17,6 @@ class AddViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var isImp: UISwitch!
     
-    // MARK: - View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - IBActions
     
     @IBAction func addStory(_ sender: Any) {
